@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header>
+      <h1>Goal Tracker</h1>
+      <nav>
+          <ul>
+              <li><a href="/">Home</a></li>
+          </ul>
+      </nav>
+  </header>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Goal Tracker - Add New Skill</title>
+    <!-- Add any necessary CSS links or styles here -->
+    <style>
+        /* Example styles (modify as needed) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        input[type="text"],
+        select,
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .countdown {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Add New Skill</h1>
+        <!-- Navigation or other header content -->
+    </header>
+
+    <main>
+        <form action="/addskill" method="POST">
+            <label for="goal">Goal:</label>
+            <input type="text" id="goal" name="goal" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="Physical Activity">Physical Activity</option>
+                <option value="Arts and Crafts">Arts and Crafts</option>
+                <option value="Language">Language</option>
+                <option value="Music">Music</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="skill">Skill:</label>
+            <input type="text" id="skill" name="skill" required>
+
+            <label for="time_limit">Time Limit (hours):</label>
+            <input type="text" id="time_limit" name="time_limit" required>
+
+            <input type="submit" value="Add Skill">
+        </form>
+    </main>
+<!--
+    <script>
+        function calculateCountdown() {
+            // Retrieve the time limit entered by the user
+            const timeLimit = document.getElementById('time_limit').value;
+
+            // Calculate the remaining time in milliseconds (assuming current time as a reference)
+            const currentTime = new Date();
+            const endTime = new Date(currentTime.getTime() + timeLimit * 60 * 60 * 1000); // Convert hours to milliseconds
+
+            // Calculate remaining hours and minutes
+            const remainingTime = endTime - currentTime;
+            const remainingHours = Math.floor(remainingTime / (60 * 60 * 1000));
+            const remainingMinutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+
+            // Display the countdown
+            const countdownText = `Time remaining: ${remainingHours} hours ${remainingMinutes} minutes`;
+            const countdownDisplay = document.createElement('p');
+            countdownDisplay.classList.add('countdown');
+            countdownDisplay.textContent = countdownText;
+
+            // Add the countdown display before the form submission
+            const form = document.querySelector('form');
+            form.insertBefore(countdownDisplay, form.querySelector('input[type="submit"]'));
+
+            return true; // Allow the form submission to proceed
+        }
+    </script>
+  -->
+</body>
+
+</html>
